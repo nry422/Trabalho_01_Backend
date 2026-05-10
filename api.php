@@ -18,15 +18,15 @@ if ($acao == 'listar') {
     file_put_contents($dados, json_encode($contatos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     echo json_encode(["status" => "ok"]); //avisa o ajax que esta ok...
 
-} else if ($acao == 'atualizar') {
-    $id = $_POST['id'];  
+} else if ($acao == 'atualizar') { //se acao for atualizar
+    $id = $_POST['id'];  //esse retorna e continua o mesmo
     $contatos[$id]['nome']     = $_POST['nome'];
     $contatos[$id]['telefone'] = $_POST['telefone'];
     $contatos[$id]['email']    = $_POST['email'];                
     file_put_contents($dados, json_encode($contatos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     echo json_encode(["status" => "ok"]);
 
-} else if ($acao == 'excluir') {
+} else if ($acao == 'excluir') { 
     $id = $_POST['id']; //recebe o id do contato que vai ser excluido
     unset($contatos[$id]); //remove contato
     file_put_contents($dados, json_encode($contatos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
