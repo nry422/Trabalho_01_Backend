@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <title>Inicial</title>
 </head>
-
+<!--teste para ver se é possivel vc ver-->
 <body>
 
     <div class="container">
@@ -18,7 +18,7 @@
            <p> 
             <!--id fica escondido mas é necessario aqui na hora de editar-->
             <input type="hidden" id="id">
-            Contato:
+            Nome:
             <input type="text" id="nome" required autofocus>
             Telefone:
             <input type="text" id="telefone" required>
