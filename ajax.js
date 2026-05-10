@@ -3,16 +3,17 @@ function listarContatos() {
     xmlhttp.onload = function () {
         const contatos = JSON.parse(this.responseText);
         let linhas = "";
-        contatos.forEach(function(c) {
+        for (let chave in contatos){
+            let c = contatos[chave];
             linhas += "<tr>";
-            linhas += "<td>" + c.id + "</td>";
+            linhas += "<td>" + chave + "</td>";
             linhas += "<td>" + c.nome + "</td>";
             linhas += "<td>" + c.telefone + "</td>";
             linhas += "<td>" + c.email + "</td>";
-            linhas += "<td><button type='button' onclick='preencherFormulario(" + c.id + ", \"" + c.nome + "\", \"" + c.telefone + "\", \"" + c.email + "\")' class='btn btn-primary btn-sm'>Editar</button></td>";
-            linhas += "<td><button type='button' onclick='excluirContato(" + c.id + ")' class='btn btn-danger btn-sm'>Excluir</button></td>";
+            linhas += "<td><button type='button' onclick='preencherFormulario(" + chave + ", \"" + c.nome + "\", \"" + c.telefone + "\", \"" + c.email + "\")' class='btn btn-primary btn-sm'>Editar</button></td>";
+            linhas += "<td><button type='button' onclick='excluirContato(" + chave + ")' class='btn btn-danger btn-sm'>Excluir</button></td>";
             linhas += "</tr>";
-        });
+        }
         document.getElementById("tabela-contatos").innerHTML = linhas;
     }
     xmlhttp.open("GET", "api.php?acao=listar");
