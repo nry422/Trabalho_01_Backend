@@ -24,16 +24,6 @@ function listarContatos() {
     xmlhttp.send();
 }
 
-function preencherFormulario(id, nome, telefone, email) {
-    document.getElementById("id").value       = id;
-    document.getElementById("nome").value     = nome;
-    document.getElementById("telefone").value = telefone;
-    document.getElementById("email").value    = email;
-
-    //esse para o botão aparecer e sumir com ele
-    botaoAtualizar.classList.remove('d-none');
-}
-
 function inserirContato() {
     const nome     = document.getElementById("nome").value;
     const telefone = document.getElementById("telefone").value;
@@ -85,6 +75,16 @@ function excluirContato(id) {
     xmlhttp.send("acao=excluir&id=" + id);
 }
 
+function preencherFormulario(id, nome, telefone, email) {
+    document.getElementById("id").value       = id;
+    document.getElementById("nome").value     = nome;
+    document.getElementById("telefone").value = telefone;
+    document.getElementById("email").value    = email;
+
+    //esse para o botão aparecer e sumir com ele
+    botaoAtualizar.classList.remove('d-none');
+}
+
 //esse para tirar as coisas que tem no form
 function limparFormulario() {
     document.getElementById("id").value = "";
@@ -96,7 +96,6 @@ function limparFormulario() {
     botaoAtualizar.classList.add('d-none');
 
 }
-
 
 //to fazendo esta que faz a tabela aparecer somente se tiver coisa, se não tiver ela mostra a outra mensagem
 function atualizaTabela(quantidade) {
