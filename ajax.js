@@ -18,7 +18,7 @@ function listarContatos() {
         }
         document.getElementById("tabela-contatos").innerHTML = linhas;
 
-        atualizaTabela(contatos.length); //isso já coloca tabela ou não
+        atualizaTabela(Object.keys(contatos).length); 
     }
     xmlhttp.open("GET", "api.php?acao=listar");
     xmlhttp.send();
