@@ -1,4 +1,5 @@
-<?php 
+<?php
+header('Content-Type: application/json'); //informa que o tipo de conteudo é json, em pura js funcionou sem isso, com jquery requeriu isso! 
 
 $dados = 'contatos.json'; //arquivo json onde os dados ficam
 $contatos = json_decode(file_get_contents($dados), true) ?? []; //decodifica para formato que array q o php usa
