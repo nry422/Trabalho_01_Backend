@@ -38,6 +38,11 @@ function inserirContato(){
     const telefone = $("#telefone").val();
     const email = $("#email").val();
 
+    if (!nome || !telefone || !email) {
+        alert("Preencha todos os campos!");
+        return; // para a função se campos estiverem vazios
+    }
+
     $.post("api.php", {
         acao: "inserir",
         nome: nome,
@@ -58,6 +63,12 @@ function atualizarContato() {
     const nome = $("#nome").val();
     const telefone = $("#telefone").val();
     const email = $("#email").val();
+
+    if (!nome || !telefone || !email) {
+        alert("Preencha todos os campos!");
+        return; // para a função se campos estiverem vazios
+    }
+
 
     $.post("api.php", {
         acao: "atualizar",
@@ -96,6 +107,8 @@ function preencherFormulario(id, nome, telefone, email){
 
     //para o botao aparecer e sumir com ele
     botaoAtualizar.removeClass('d-none');
+    $("#botao-adicionar").addClass('d-none'); // esconde o botao adicionar quando esta editando para evitar duplicar
+    verificarCampos();
 }
 
 function limparFormulario(){
@@ -107,6 +120,7 @@ function limparFormulario(){
 
     botaoAtualizar.addClass('d-none');
     $("#botao-limpar").addClass('d-none');
+     $("#botao-adicionar").removeClass('d-none'); //mostra adicionar
 
 }
 

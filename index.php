@@ -32,8 +32,10 @@
                         <input type="text" id="email" class="form-control" required>
                     </div>
                     <div class="col-12 col-md-auto">
-                        <button type="button" onclick="inserirContato()" class="btn btn-primary">Adicionar</button>
-                        <button type="button" onclick="atualizarContato()" class="btn btn-primary d-none" id="botao-atualizar">Atualizar</button>
+                        <button type="button" onclick="inserirContato()" class="btn btn-primary" id="botao-adicionar">Adicionar</button>
+                        <button type="button" onclick="atualizarContato()" class="btn btn-primary d-none" id="botao-atualizar">Atualizar</button>                        
+                    </div>
+                    <div class="mt-2">
                         <button type="button" onclick="limparFormulario()" class="btn btn-secondary d-none" id="botao-limpar">Limpar</button>
                     </div>
         </div>
