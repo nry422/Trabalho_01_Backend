@@ -135,14 +135,54 @@ function verificarCampos() {
 
 $("#nome, #telefone, #email").on("input", verificarCampos);
 
+$(document).on("input", '#busca', function() {
+    const busca = $(this).val();
+
+    if (busca.length >= 1) {
+        $("#botao-limpar-busca").removeClass('d-none');
+    } else {
+        $("#botao-limpar-busca").addClass('d-none');
+    }
+
+    if (busca.length >= 2) {
+        $.get("api.php", { acao: "buscar", nome: busca}, function(contatos) {
+        let linhas = "";
+        for (let chave in contatos){        
+            let c = contatos[chave];
+            linhas += "<tr>";
+            linhas += "<td>" + chave + "</td>";
+            linhas += "<td>" + c.nome + "</td>";
+            linhas += "<td>" + c.telefone + "</td>";
+            linhas += "<td>" + c.email + "</td>";
+            linhas += "<td>";
+            linhas += "<button type='button' onclick='preencherFormulario(" + chave + ", \"" + c.nome + "\", \"" + c.telefone + "\", \"" + c.email + "\")' class='btn btn-primary btn-sm me-1'>Editar</button> ";
+            linhas += "<button type='button' onclick='excluirContato(" + chave + ")' class='btn btn-danger btn-sm'>Excluir</button>";
+            linhas += "</td>";
+            linhas += "</tr>";
+        }
+        $("#tabela-contatos").html(linhas);
+        });
+    } else {
+        listarContatos();
+    }    
+});
+
 function atualizaTabela(quantidade) {
     if(quantidade > 0) { //checa se tem mais que nada na tabela
         $("#tabela-toda").removeClass('d-none');
+        $("#busca-contatos").removeClass('d-none');
         $("#mensagem-vazia").addClass('d-none');
     } else { //se não tiver nada na tabela mostra a mensagem
         $("#tabela-toda").addClass('d-none'); //esconde a tabela
+        $("#busca-contatos").addClass('d-none');
         $("#mensagem-vazia").removeClass('d-none');
     }
+}
+
+function limparBusca(){
+    $("#busca").val("");
+    $("#botao-limpar-busca").addClass('d-none');
+    listarContatos();
 }
 
 listarContatos();

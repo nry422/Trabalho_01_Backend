@@ -41,7 +41,20 @@
         </div>
         </form>
 </div>
-        
+
+<div id="busca-contatos" class="d-none mt-3 mb-2">
+    <div class="row g-2 align-items-end">
+        <div class="col">
+            <label for="busca">Filtrar:</label>
+            <input type="text" id="busca" class="form-control" placeholder="Digite o nome...">
+</div>
+<div class="col-auto">
+    <button type="button" onclick="limparBusca()" class="btn btn-secondary d-none" id="botao-limpar-busca">Limpar</button>
+        </div>
+    </div>
+</div>
+
+
     <div class="table-responsive">
         <table class="table mt-4 d-none" id="tabela-toda"> <!--Aqui ele está com d-none pois some e aparece conforme dados no json-->
             <thead class="table-light">

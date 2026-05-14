@@ -8,6 +8,12 @@ $acao = $_POST['acao'] ?? $_GET['acao'] ?? ''; //pode usar get ou post para acao
 
 if ($acao == 'listar') {
     echo json_encode($contatos); //se acao for listar mostra os contatos
+} else if ($acao == 'buscar') {
+    $nome = $_GET['nome'];    
+    $resultado = array_filter($contatos, function($c) use ($nome) {
+        return stripos($c['nome'], $nome) !== false;
+    });
+    echo json_encode($resultado);
 
 } else if ($acao == 'inserir') {  //se acao for inserir
     $adicionarId = empty($contatos) ? 1 : max(array_keys($contatos)) + 1; //se for vazio começa de 1, se tiver id adiciona mais 1
