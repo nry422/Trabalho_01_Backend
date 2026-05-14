@@ -1,0 +1,11 @@
+.imagem {
+    width: 600px;
+    height: 600px;
+    background-image: url('imagens/rosa.png');
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.imagem:hover {
+    background-image: url('imagens/rosasorrindo.png'); 
+}
