@@ -172,10 +172,12 @@ function atualizaTabela(quantidade) {
         $("#tabela-toda").removeClass('d-none');
         $("#busca-contatos").removeClass('d-none');
         $("#mensagem-vazia").addClass('d-none');
+        $("#imagem").addClass('d-none');
     } else { //se não tiver nada na tabela mostra a mensagem
         $("#tabela-toda").addClass('d-none'); //esconde a tabela
         $("#busca-contatos").addClass('d-none');
         $("#mensagem-vazia").removeClass('d-none');
+        $("#imagem").removeClass('d-none');
     }
 }
 
